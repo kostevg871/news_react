@@ -1,0 +1,14 @@
+.wrapper {
+  height: auto;
+  width: 100%;
+  position: relative;
+  padding-top: 80%;
+  background-color: gray;
+}
+
+.list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
