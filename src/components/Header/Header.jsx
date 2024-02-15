@@ -2,7 +2,7 @@ import React from "react";
 import { formateDate } from "../../helpers/formatDate";
 import styles from "./styles.module.css";
 
-export const Header = () => {
+const Header = () => {
   return (
     <header className={styles.header}>
       <h1 className={styles.title}>News Project</h1>
@@ -10,3 +10,5 @@ export const Header = () => {
     </header>
   );
 };
+
+export default Header;
