@@ -25,7 +25,7 @@ export const getCategory = async () => {
     const response = await axios.get(`${BASE_URL}available/categories`, {
       params: { apiKey: API_URL },
     });
-    console.log(response.data);
+    //console.log(response.data);
     return response.data;
   } catch (error) {
     console.log(error.data);
