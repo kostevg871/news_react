@@ -1,10 +1,10 @@
-import React from "react";
 import styles from "./styles.module.css";
 
 const Search = ({ keywords, setKeywords }) => {
   return (
     <div className={styles.search}>
       <input
+        id="1"
         type="text"
         value={keywords}
         onChange={(e) => setKeywords(e.target.value)}
