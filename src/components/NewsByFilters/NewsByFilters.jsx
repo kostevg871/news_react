@@ -39,7 +39,7 @@ const NewsByFilters = () => {
   };
 
   return (
-    <section className={styles.sections}>
+    <section className={styles.section}>
       <NewsFilters changeFilter={changeFilter} filters={filters} />
       <PaginationWrapper
         top
