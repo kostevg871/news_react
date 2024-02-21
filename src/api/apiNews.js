@@ -13,7 +13,6 @@ export const getNews = async ({
     const response = await axios.get(`${BASE_URL}search`, {
       params: { apiKey: API_URL, page_number, page_size, category, keywords },
     });
-    //console.log(response.data);
     return response.data;
   } catch (error) {
     console.log(error.data);
@@ -25,7 +24,17 @@ export const getCategory = async () => {
     const response = await axios.get(`${BASE_URL}available/categories`, {
       params: { apiKey: API_URL },
     });
-    //console.log(response.data);
+    return response.data;
+  } catch (error) {
+    console.log(error.data);
+  }
+};
+
+export const getLatestNews = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}latest-news`, {
+      params: { apiKey: API_URL },
+    });
     return response.data;
   } catch (error) {
     console.log(error.data);

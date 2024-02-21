@@ -5,7 +5,7 @@ import withSkeleton from "../../helpers/hocs/withSkeleton";
 const BannersList = ({ banners }) => {
   return (
     <ul className={styles.banners}>
-      {banners?.map((banner) => {
+      {banners?.slice(0, 10).map((banner) => {
         return <NewsBanner key={banner.id} item={banner} />;
       })}
     </ul>
