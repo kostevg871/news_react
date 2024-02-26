@@ -2,16 +2,35 @@ export interface INews {
   author: string;
   category: CategoriesType[];
   description: string;
-  id: NewsId;
+  id: string;
   image: string;
   language: string;
   published: string;
   title: string;
-  url: UrlType;
+  url: string;
 }
 
-interface IBanner extends INews {
-  bannerId: string;
+export interface NewApiResponse {
+  news: INews[];
+  page: number;
+  status: string;
+}
+
+export type SkeletonType = "banner" | "item";
+export type DirectionType = "row" | "column";
+
+export interface CategoriesApiResponse {
+  categories: CategoriesType[];
+  description: string;
+  status: string;
+}
+
+export interface IPaginationProps {
+  totalPages: number;
+  handlePreviousPage: () => void;
+  handleNextPage: () => void;
+  handlePageClick: (page: number) => void;
+  currentPage: number;
 }
 
 export interface IFilters {
@@ -20,25 +39,8 @@ export interface IFilters {
   category: CategoriesType | null;
   keywords: string;
 }
-//const news = {
-//  author: "Evgeniy",
-//  category: ["all"],
-//  description: "TypeScript",
-//  id: 1,
-//  image: null,
-//  language: "ru",
-//  published: "yes",
-//  title: "TS",
-//  url: "",
-//};
 
-//type NewsType = typeof news;
-
-export type ItemType = INews & IBanner;
-
-//type CategoryType = string;
-type UrlType = string | null | undefined;
-type NewsId = string;
+export type ParamsType = Partial<IFilters>;
 
 export type CategoriesType =
   | "regional"

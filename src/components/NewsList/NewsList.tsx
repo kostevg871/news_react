@@ -4,14 +4,14 @@ import withSkeleton from "../../helpers/hocs/withSkeleton";
 import { INews } from "../../interfaces";
 
 interface Props {
-  news: INews[];
+  news?: INews[];
 }
 
 const NewsList = ({ news }: Props) => {
   return (
     <div className={styles.list}>
       <ul>
-        {news.map((item) => {
+        {news?.map((item) => {
           return <NewsItem key={item.id} item={item} />;
         })}
       </ul>
@@ -19,6 +19,6 @@ const NewsList = ({ news }: Props) => {
   );
 };
 
-const NewsListWithSkeleton = withSkeleton(NewsList, "item", 10);
+const NewsListWithSkeleton = withSkeleton<Props>(NewsList, "item", 10);
 
 export default NewsListWithSkeleton;

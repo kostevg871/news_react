@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CategoriesType, INews } from "../interfaces";
+import { CategoriesApiResponse, CategoriesType, INews } from "../interfaces";
 
 const BASE_URL = import.meta.env.VITE_NEWS_BASE_API_URL;
 const API_URL = import.meta.env.VITE_NEWS_API_KEY;
@@ -21,13 +21,14 @@ export interface IParams {
   keywords?: string;
 }
 
-export const getNews = async ({
-  page_number = 1,
-  page_size = 10,
-  category,
-  keywords,
-}: IParams): Promise<newsApiResponce> => {
+export const getNews = async (params?: IParams): Promise<newsApiResponce> => {
   try {
+    const {
+      page_number = 1,
+      page_size = 10,
+      category,
+      keywords,
+    } = params || {};
     const response = await axios.get<newsApiResponce>(`${BASE_URL}search`, {
       params: { apiKey: API_URL, page_number, page_size, category, keywords },
     });
@@ -38,24 +39,32 @@ export const getNews = async ({
   }
 };
 
-export const getCategory = async () => {
+export const getCategory = async (): Promise<CategoriesApiResponse> => {
   try {
-    const response = await axios.get(`${BASE_URL}available/categories`, {
-      params: { apiKey: API_URL },
-    });
+    const response = await axios.get<CategoriesApiResponse>(
+      `${BASE_URL}available/categories`,
+      {
+        params: { apiKey: API_URL },
+      }
+    );
     return response.data;
   } catch (error) {
-    console.log(error.data);
+    console.log(error);
+    return { categories: [], description: "", status: "error" };
   }
 };
 
-export const getLatestNews = async () => {
+export const getLatestNews = async (): Promise<newsApiResponce> => {
   try {
-    const response = await axios.get(`${BASE_URL}latest-news`, {
-      params: { apiKey: API_URL },
-    });
+    const response = await axios.get<newsApiResponce>(
+      `${BASE_URL}latest-news`,
+      {
+        params: { apiKey: API_URL },
+      }
+    );
     return response.data;
   } catch (error) {
-    console.log(error.data);
+    console.log(error);
+    return { news: [], page: 1, status: Status.Error };
   }
 };
