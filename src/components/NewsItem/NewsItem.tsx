@@ -1,8 +1,12 @@
-import React from "react";
 import styles from "./styles.module.css";
 import { formatTimeAgo } from "../../helpers/formatTimeAge";
+import { ItemType } from "../../interfaces";
 
-const NewsItem = ({ item }) => {
+interface Props {
+  item: ItemType;
+}
+
+const NewsItem = ({ item }: Props) => {
   return (
     <li className={styles.item}>
       <div
