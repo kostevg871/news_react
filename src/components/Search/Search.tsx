@@ -1,10 +1,15 @@
-import React from "react";
 import styles from "./styles.module.css";
 
-const Search = ({ keywords, setKeywords }) => {
+interface Props {
+  keywords: string;
+  setKeywords: (keywords: string) => void;
+}
+
+const Search = ({ keywords, setKeywords }: Props) => {
   return (
     <div className={styles.search}>
       <input
+        id="1"
         type="text"
         value={keywords}
         onChange={(e) => setKeywords(e.target.value)}
