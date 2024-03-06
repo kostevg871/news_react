@@ -11,7 +11,9 @@ const NewsItem = ({ item }: Props) => {
     <li className={styles.item}>
       <div
         className={styles.wrapper}
-        style={{ backgroundImage: `url(${item.image})` }}
+        style={{
+          backgroundImage: `url(${item.image.replace(/["'[\]]/g, "")})`,
+        }}
       ></div>
 
       <div className={styles.info}>
