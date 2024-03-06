@@ -6,6 +6,14 @@
   gap: 12px;
 }
 
+.light {
+  background-color: white;
+}
+
+.dark {
+  background-color: #202124;
+}
+
 .input {
   width: 100%;
   padding: 6px 10px;
