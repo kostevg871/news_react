@@ -10,7 +10,7 @@ export interface INews {
   url: string;
 }
 
-export interface NewApiResponse {
+export interface NewsApiResponse {
   news: INews[];
   page: number;
   status: string;
