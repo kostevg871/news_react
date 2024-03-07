@@ -9,7 +9,6 @@
 .pageNumber,
 .arrow {
   border: none;
-  background-color: white;
   cursor: pointer;
 }
 
@@ -22,6 +21,18 @@
 .pagination.dark .arrow {
   background-color: #202124;
   color: #f6f7f9;
+}
+
+.pagination.dark .pageNumber:disabled,
+.pagination.dark .arrow:disabled {
+  background-color: grey;
+  color: #f6f7f9;
+}
+
+.pagination.light .pageNumber:disabled,
+.pagination.light .arrow:disabled {
+  background-color: silver;
+  color: black;
 }
 
 .pagination.light .pageNumber,
