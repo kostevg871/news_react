@@ -1,0 +1,45 @@
+.details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  gap: 12px;
+}
+
+.extra {
+  font-size: 12px;
+  color: #6c7072;
+}
+
+.description {
+  padding: 0 20px;
+  gap: 20;
+}
+
+.description > * {
+  margin-bottom: 8px;
+}
+
+.active {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 32px;
+  color: blueviolet;
+  background-color: darkgray;
+}
+
+.categoryList {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .details {
+    grid-template-columns: 1fr;
+  }
+  .description {
+    padding: 20px 0;
+  }
+}
